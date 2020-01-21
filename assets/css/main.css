@@ -2489,7 +2489,8 @@
 		-webkit-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
-		background-color: #002b3d;
+		background-blend-mode: multiply;
+		background-color: #666666;
 		background-attachment: scroll;
 		background-image: url("../../images/bg3.jpg");
 		background-position: top left;
