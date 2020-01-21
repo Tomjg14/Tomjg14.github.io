@@ -14,7 +14,7 @@
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<script type='text/javascript'>
 			JQuery(document).ready(function($) {
-			$(".scroll").click(function(event) {
+			$(".button").click(function(event) {
 				event.preventDefault();
 				$('html,body').animate({scrollTop:$(this.hash).offset().top}, 1200);
 				window.location.hash = "";
@@ -46,7 +46,7 @@
 						On this website you will find more information about my education, previous work experiences and programming projects that I finished.</p>
 					</section>
 					<ul class="actions">
-						<li><a href="#two" class="scroll">Education</a></li>
+						<li><a href="#two" class="button">Education</a></li>
 						<li><a href="#three" class="button">Work Experience</a></li>
 						<li><a href="#four" class="button">Projects</a></li>
 					</ul>
