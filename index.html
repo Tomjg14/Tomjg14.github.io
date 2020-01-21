@@ -12,6 +12,14 @@
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script type='text/javascript'>
+			JQuery(document).ready(function($) {
+			$(".scroll").click(function(event) {
+				event.preventDefault();
+				$('html,body').animate({scrollTop:$(this.hash).offset().top}, 1200);
+				});
+			});
+		</script>
 	</head>
 	<body id="top">
 
@@ -37,14 +45,13 @@
 						On this website you will find more information about my education, previous work experiences and programming projects that I finished.</p>
 					</section>
 					<ul class="actions">
-						<li><a href="#two" class="button">Education</a></li>
+						<li><a href="#two" class="scroll">Education</a></li>
 						<li><a href="#three" class="button">Work Experience</a></li>
 						<li><a href="#four" class="button">Projects</a></li>
 					</ul>
 
 				<!-- Two -->
-					<section>
-						<a name="two">
+					<section id="two">
 						<h2>Education</h2>
 						<ul>
 							<li><i><a HREF="http://www.treccast.ai/">Conversational assistance track TREC</a></i></li>
