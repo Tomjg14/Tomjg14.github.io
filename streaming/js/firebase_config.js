@@ -11,8 +11,6 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-var storage = firebase.storage();
-
 document.addEventListener("DOMContentLoaded", event => {
 	const app = firebase.app();
 	
