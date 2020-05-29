@@ -1,9 +1,10 @@
 h1 {
   text-align: center;
-  color: red;
 }
 
 .content {
 	width: 75%;
 	margin: auto;
+	display: flex;
+	justify-content: center;
 }
