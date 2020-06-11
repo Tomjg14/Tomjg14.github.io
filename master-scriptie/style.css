@@ -12,11 +12,11 @@ h3 {
 	flex-direction: column;
 }
 
-img {
+#dog {
 	width: 50%;
 	margin: auto;
 }
 
-img #loading_bar {
+#loading_bar {
 	width: 10%;
 }
