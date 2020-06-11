@@ -16,3 +16,7 @@ img {
 	width: 50%;
 	margin: auto;
 }
+
+img #loading_bar {
+	width: 10%;
+}
