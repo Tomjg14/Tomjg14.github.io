@@ -31,9 +31,9 @@
 					<label for="email"><b>Email</b></label>
 					<input type="text" placeholder="Enter Email" id="email" required>
 					<label for="password"><b>Password</b></label>
-					<input type="text" placeholder="Enter Password" id="password" required>
+					<input type="password" placeholder="Enter Password" id="password" required>
 					<div id="btn">
-					<button class="btn btn-lg btn-success fp-buttons custom-button" type="submit" id="register">Sign-in</button>
+					<button class="btn btn-lg btn-success fp-buttons custom-button" type="submit" id="signin">Sign-in</button>
 					</div>
 				</form>
 			</div>
@@ -53,7 +53,7 @@
 		
 		<script>
 			//Handling Contact Form
-			document.getElementById('register').addEventListener('click', event => {
+			document.getElementById('signin').addEventListener('click', event => {
 				const contactDiv = document.getElementById('contact-form');
 				const messageDiv = document.getElementById('message-block');
 				contactDiv.style.display = "block";
