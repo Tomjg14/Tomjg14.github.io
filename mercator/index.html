@@ -23,21 +23,15 @@
 		<div id="page-content-wrapper">
 			<main class="container" role="main">
 				<div class="starter-template">
-					<h1 class='text-center'><strong>Register</strong></h1>
-					<p>Before you can start you will need to register your email.
-					This data is only used to make sure no person can participate more than once.
-					And to be sure that your input will be stored correctly.
-					Once you entered a valid e-mail address a verification link will be send to it.
-					Click on the verification link to continue with this questionnaire.
-					Be aware: the link might be located in your spam folder.</p>
-					<p class='text-center'>If you encounter any problems, please contact me via <a HREF="mailto:tomjg@hotmail.nl">tomjg@hotmail.nl</a>.</p>
-					<p class='text-center'>Important: open the verification link on the same device as you are currently working and preferbly not on your mobile phone.</p>
+					<h1 class='text-center'><strong>Sign-in</strong></h1>
 				</div>
 			</main>
 			<div class="col-md-12 text-center" id='contact-form'> 
 				<form action="javascript:emailLinkLogin(document.getElementById('email').value)">
 					<label for="email"><b>Email</b></label>
 					<input type="text" placeholder="Enter Email" id="email" required>
+					<label forfor="password"><b>Password</b></label>
+					<input type="text" placeholder="Enter Password" id="password" required>
 					<div id="btn">
 					<button class="btn btn-lg btn-success fp-buttons custom-button" type="submit" id="register">Register</button>
 					</div>
