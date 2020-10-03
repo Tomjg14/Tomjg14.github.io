@@ -1,7 +1,7 @@
 function emailLinkLogin(email) {
 	
 	var actionCodeSettings = {
-		url: 'https://tomjanssengroesbeek.nl/',
+		url: 'https://tomjanssengroesbeek.nl/mercator/product-menu.html',
 		handleCodeInApp: true
 	}
 	
