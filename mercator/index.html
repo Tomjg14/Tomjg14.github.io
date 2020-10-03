@@ -10,14 +10,14 @@
 
 	<BODY>
 		<!-- The core Firebase JS SDK is always required and must be listed first -->
-		<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-app.js"></script>
 
 		<!-- TODO: Add SDKs for Firebase products that you want to use
 		https://firebase.google.com/docs/web/setup#available-libraries -->
-		
-		<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-database.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.22.0/firebase-firestore.js"></script>
 
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
@@ -27,11 +27,9 @@
 				</div>
 			</main>
 			<div class="col-md-12 text-center" id='contact-form'> 
-				<form id='frm' action="javascript:emailLinkLogin(document.getElementById('email').value)">
+				<form action="javascript:emailLinkLogin(document.getElementById('email').value)">
 					<label for="email"><b>Email</b></label>
 					<input type="text" placeholder="Enter Email" id="email" required>
-					<label for="password"><b>Password</b></label>
-					<input type="password" placeholder="Enter Password" id="password" required>
 					<div id="btn">
 					<button class="btn btn-lg btn-success fp-buttons custom-button" type="submit" id="signin">Sign-in</button>
 					</div>
