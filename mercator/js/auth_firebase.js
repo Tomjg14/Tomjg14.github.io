@@ -10,6 +10,6 @@ if (firebase.auth().isSignInWithEmailLink(window.location.href)) {
 	})
 	.catch(function(error) {
 		window.alert(error.message);
-		window.location = 'consent_form.php';
+		window.location = 'index.html';
 	});
 }
