@@ -5,6 +5,8 @@ function checkLogin() {
 		if(!user) {
 			window.alert("You need to register before you can participate. If you already did, but something went wrong, then please report this in an email to tomjg@hotmail.nl");
 			window.location = 'consent_form.php'; 
+		} else if (quitBool) {
+			window.location = "index.html";
 		}
 	});
 }
