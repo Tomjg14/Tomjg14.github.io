@@ -7,6 +7,7 @@ signOutBtn.addEventListener("click", e => {
 	
 	firebase.auth().signOut().then(function() {
 		console.log("logging out");
+		window.location = "index.html";
 	});
 	
 });
