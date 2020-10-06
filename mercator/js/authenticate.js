@@ -35,8 +35,8 @@ function emailLinkLogin(email) {
 				}
 			});
 		} else {
-			window.alert("Email was not verified before. You are redirected to the homepage.");
-			window.location = 'index.html'; 
+			window.alert("Email was not verified before. You are redirected to registration.");
+			window.location = 'registration.html'; 
 		}
 	})
 	.catch(function(error) {
