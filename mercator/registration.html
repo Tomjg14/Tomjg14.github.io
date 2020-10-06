@@ -35,6 +35,11 @@
 					</div>
 				</form>
 			</div>
+			<div class="col-md-12 text-center">
+				<div id="btn">
+					<button class="btn btn-lg btn-success fp-buttons custom-button" id="back">Back</button>
+				</div>
+			</div>
 			<div class="col-md-12 text-center" id='message-block'>
 				<br>
 			</div>
@@ -56,6 +61,16 @@
 				const messageDiv = document.getElementById('message-block');
 				contactDiv.style.display = "block";
 				messageDiv.style.display = "block";
+			});
+		</script>
+		
+		<script>
+			const backBtn = document.getElementById('back');
+
+			backBtn.addEventListener("click", e =>{
+				e.preventDefault();
+	
+				window.location="index.html";
 			});
 		</script>
 		
