@@ -23,21 +23,21 @@ form.addEventListener('submit', e => {
 		if(user) {
 			console.log("user logged in");
 			trendsRef.put(bol_trends).then(function() {
-				console.log("uplaoded image");
-			});
-			trendsRef.getDownloadURL().then(function(url) {
-				productCollectionRef.add({
-					product_naam: product_name,
-					bol_link: bol_link,
-					gem_verkoopprijs: gem_verkoopprijs,
-					bol_trends: url,
-					gem_inkoopprijs: gem_inkoopprijs,
-					nr_zoekresultaten: nr_zoekresultaten,
-					toelichting: toelichting,
-					afmetingen: afmetingen,
-					gewicht: gewicht
-				}).then(function() {
-					console.log("added info");
+				console.log("uploaded image");
+				trendsRef.getDownloadURL().then(function(url) {
+					productCollectionRef.add({
+						product_naam: product_name,
+						bol_link: bol_link,
+						gem_verkoopprijs: gem_verkoopprijs,
+						bol_trends: url,
+						gem_inkoopprijs: gem_inkoopprijs,
+						nr_zoekresultaten: nr_zoekresultaten,
+						toelichting: toelichting,
+						afmetingen: afmetingen,
+						gewicht: gewicht
+					}).then(function() {
+						console.log("added info");
+					});
 				});
 			});
 		} else {
