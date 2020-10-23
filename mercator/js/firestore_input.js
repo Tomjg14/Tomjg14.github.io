@@ -6,7 +6,7 @@ form.addEventListener('submit', e => {
 	
 	const productCollectionRef = db.collection('products');
 	
-	var product_name = document.querySelector("input[id='product_name']");
+	var product_name = document.querySelector("input[id='product_name']").value;
 	console.log(product_name);
 	
 	firebase.auth().onAuthStateChanged(function(user) {
