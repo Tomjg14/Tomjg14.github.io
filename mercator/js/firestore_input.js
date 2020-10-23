@@ -16,8 +16,8 @@ form.addEventListener('submit', e => {
 	var product_name = document.querySelector("input[id='product_name']").value;
 	var bol_link = document.querySelector("input[id='bol_link']").value;
 	var gem_verkoopprijs = document.querySelector("input[id='gem_verkoopprijs']").value;
-	var bol_trends = document.querySelector("input[id='bol_trends']").src;
-	console.log(firstFile);
+	var bol_trends = document.querySelector("input[id='bol_trends']").files[0];
+	console.log(bol_trends);
 	
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
