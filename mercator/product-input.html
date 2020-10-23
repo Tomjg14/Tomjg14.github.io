@@ -24,7 +24,7 @@
 			<main class="container" role="main">
 				<div class="starter-template">
 					<h1 class='text-center'><strong>Product Input</strong></h1>
-					<form name="product_info">
+					<form name="product_info" onsubmit="return false">
 						<table id='product_input_table' cellspacing="30">
 							<tbody>
 								<tr>
@@ -66,9 +66,7 @@
 							</tbody>
 						</table>
 						<div class="col-md-12 text-center">
-							<div id="btn">
-								<button class="btn btn-lg btn-success fp-buttons custom-button" type="submit" id="add">Add</button>
-							</div>
+							<button class="btn btn-lg btn-success fp-buttons custom-button" type="submit" id="submit">Add</button>
 						</div>
 					</form>
 				</div>

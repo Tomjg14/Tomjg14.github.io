@@ -1,6 +1,6 @@
 const form = document.querySelector('form')
 
-form.addEventListener('add', e => {
+form.addEventListener('submit', e => {
 	e.preventDefault();
 	console.log("hello");
 	const db = firebase.firestore();
