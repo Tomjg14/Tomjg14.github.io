@@ -17,25 +17,28 @@ form.addEventListener('submit', e => {
 	var gewicht = document.querySelector("input[id='gewicht']").value;
 	
 	const productCollectionRef = db.collection('mercator-product-review');
-	const trendsRef = storage.ref('trends/myPictureName');
+	const trendsRef = storage.ref('trends/myPictureName.png');
 	
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
 			console.log("user logged in");
-			productCollectionRef.add({
-				product_naam: product_name,
-				bol_link: bol_link,
-				gem_verkoopprijs: gem_verkoopprijs,
-				gem_inkoopprijs: gem_inkoopprijs,
-				nr_zoekresultaten: nr_zoekresultaten,
-				toelichting: toelichting,
-				afmetingen: afmetingen,
-				gewicht: gewicht
-			}).then(function() {
-				console.log("added info");
-			});
 			trendsRef.put(bol_trends).then(function() {
 				console.log("uplaoded image");
+			});
+			trendsRef.getDownloadURL().then(function(url) {
+				productCollectionRef.add({
+					product_naam: product_name,
+					bol_link: bol_link,
+					gem_verkoopprijs: gem_verkoopprijs,
+					bol_trends: url,
+					gem_inkoopprijs: gem_inkoopprijs,
+					nr_zoekresultaten: nr_zoekresultaten,
+					toelichting: toelichting,
+					afmetingen: afmetingen,
+					gewicht: gewicht
+				}).then(function() {
+					console.log("added info");
+				});
 			});
 		} else {
 			console.log("user not logged in");
