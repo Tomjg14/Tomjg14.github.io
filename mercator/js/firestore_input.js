@@ -16,6 +16,7 @@ form.addEventListener('submit', e => {
 	var gewicht = document.querySelector("input[id='gewicht']").value;
 	
 	const productCollectionRef = db.collection('mercator-product-review');
+	const trendsRef = db.storage().ref('trends/myPictureName');
 	
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
@@ -31,6 +32,9 @@ form.addEventListener('submit', e => {
 				gewicht: gewicht
 			}).then(function() {
 				console.log("added info");
+			});
+			trendsRef.put(bol_trends).then(function() {
+				console.log("uplaoded image');
 			});
 		} else {
 			console.log("user not logged in");
