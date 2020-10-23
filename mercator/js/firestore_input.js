@@ -5,6 +5,8 @@ fileUpload.addEventListener('change', function(evt) {
 	let firstFile = evt.target.files[0]
 	console.log(firstFile);
  })
+ 
+ 
 form.addEventListener('submit', e => {
 	e.preventDefault();
 	const db = firebase.firestore();
@@ -15,7 +17,7 @@ form.addEventListener('submit', e => {
 	var bol_link = document.querySelector("input[id='bol_link']").value;
 	var gem_verkoopprijs = document.querySelector("input[id='gem_verkoopprijs']").value;
 	var bol_trends = document.querySelector("input[id='bol_trends']").src;
-	console.log(bol_trends);
+	console.log(firstFile);
 	
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
