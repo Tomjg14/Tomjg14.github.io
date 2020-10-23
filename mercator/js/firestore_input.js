@@ -34,7 +34,7 @@ form.addEventListener('submit', e => {
 				console.log("added info");
 			});
 			trendsRef.put(bol_trends).then(function() {
-				console.log("uplaoded image');
+				console.log("uplaoded image");
 			});
 		} else {
 			console.log("user not logged in");
