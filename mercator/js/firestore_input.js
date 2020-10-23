@@ -4,6 +4,7 @@ let fileUpload = document.getElementById('bol_trends')
 form.addEventListener('submit', e => {
 	e.preventDefault();
 	const db = firebase.firestore();
+	const storage = firebase.storage();
 	
 	var product_name = document.querySelector("input[id='product_name']").value;
 	var bol_link = document.querySelector("input[id='bol_link']").value;
@@ -16,7 +17,7 @@ form.addEventListener('submit', e => {
 	var gewicht = document.querySelector("input[id='gewicht']").value;
 	
 	const productCollectionRef = db.collection('mercator-product-review');
-	const trendsRef = db.storage().ref('trends/myPictureName');
+	const trendsRef = storage.ref('trends/myPictureName');
 	
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
