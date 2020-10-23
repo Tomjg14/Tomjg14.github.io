@@ -7,6 +7,8 @@ form.addEventListener('add', e => {
 	
 	const productCollectionRef = db.collection('products');
 	
+	var product_name = document.querySelector("input[id='product_name']")
+	
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
 			console.log("user logged in");
