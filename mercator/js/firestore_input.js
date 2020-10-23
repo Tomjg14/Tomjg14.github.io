@@ -2,7 +2,7 @@ const form = document.querySelector('form')
 
 form.addEventListener('add', e => {
 	e.preventDefault();
-	
+	console.log("hello");
 	const db = firebase.firestore();
 	
 	const productCollectionRef = db.collection('products');
