@@ -24,7 +24,6 @@ form.addEventListener('submit', e => {
 				product_naam: product_name,
 				bol_link: bol_link,
 				gem_verkoopprijs: gem_verkoopprijs,
-				bol_trends: bol_trends,
 				gem_inkoopprijs: gem_inkoopprijs,
 				nr_zoekresultaten: nr_zoekresultaten,
 				toelichting: toelichting,
