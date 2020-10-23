@@ -2,12 +2,12 @@ const form = document.querySelector('form')
 
 form.addEventListener('submit', e => {
 	e.preventDefault();
-	console.log("hello");
 	const db = firebase.firestore();
 	
 	const productCollectionRef = db.collection('products');
 	
-	var product_name = document.querySelector("input[id='product_name']")
+	var product_name = document.querySelector("input[id='product_name']");
+	console.log(product_name);
 	
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
