@@ -7,14 +7,16 @@ form.addEventListener('submit', e => {
 	const storage = firebase.storage();
 	
 	var product_name = document.querySelector("input[id='product_name']").value;
+	var ean = document.querySelector("input[id='EAN']").value;
 	var bol_link = document.querySelector("input[id='bol_link']").value;
 	var gem_verkoopprijs = document.querySelector("input[id='gem_verkoopprijs']").value;
-	var bol_trends = document.querySelector("input[id='bol_trends']").files[0];
 	var gem_inkoopprijs = document.querySelector("input[id='gem_inkoopprijs']").value;
 	var nr_zoekresultaten = document.querySelector("input[id='nr_zoekresultaten']").value;
+	var zoek_termen = document.querySelector("input[id='zoek_termen']").value;
 	var toelichting = document.querySelector("input[id='toelichting']").value;
 	var afmetingen = document.querySelector("input[id='afmetingen']").value;
 	var gewicht = document.querySelector("input[id='gewicht']").value;
+	var bol_trends = document.querySelector("input[id='bol_trends']").files[0];
 	
 	const productCollectionRef = db.collection('mercator-product-review');
 	const trendsRef = storage.ref('trends/myPictureName.png');
@@ -25,16 +27,18 @@ form.addEventListener('submit', e => {
 			trendsRef.put(bol_trends).then(function() {
 				console.log("uploaded image");
 				trendsRef.getDownloadURL().then(function(url) {
-					productCollectionRef.add({
+					productCollectionRef.doc(ean).set({
 						product_naam: product_name,
+						ean: ean,
 						bol_link: bol_link,
 						gem_verkoopprijs: gem_verkoopprijs,
-						bol_trends: url,
 						gem_inkoopprijs: gem_inkoopprijs,
 						nr_zoekresultaten: nr_zoekresultaten,
+						zoek_termen: zoek_termen,
 						toelichting: toelichting,
 						afmetingen: afmetingen,
-						gewicht: gewicht
+						gewicht: gewicht,
+						bol_trends: url
 					}).then(function() {
 						console.log("added info");
 					});
