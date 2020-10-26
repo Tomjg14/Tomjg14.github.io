@@ -1,3 +1,8 @@
+async getDocIDs() {
+	const snapshot = await firebase.firestore().collection("mercator-product_review").get()
+	return snapshot.docs.map(doc => doc.id);
+}
+
 function getProducts() {
 	const db = firebase.firestore();
 	let table = document.getElementById("product_table").getElementsByTagName('tbody')[0];
@@ -13,10 +18,6 @@ function getProducts() {
 	nameCell.innerHTML = "Product Name";
 	linkCell.innerHTML = "Product Information";
 	reviewCell.innerHTML = "Reviews";
-	
-	db.collection("mercator-product_review").get().then(function(querySnapshot) {
-		querySnapshot.forEach(function(doc) {
-			console.log(doc.id, " => ", doc.data());
-		});
-	});
+
+	console.log(getDocIDs());
 }
