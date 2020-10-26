@@ -28,7 +28,7 @@ async function getProducts() {
 		linkCell = rij.insertCell(2);
 		reviewCell = rij.insertCell(3);
 		
-		eanCell.innerHTML = doc.ean;
-		nameCell.innerHTML = doc.product_naam;
+		eanCell.innerHTML = docs[i].ean;
+		nameCell.innerHTML = docs[i].product_naam;
 	}
 }
