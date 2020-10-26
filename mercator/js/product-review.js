@@ -32,5 +32,6 @@ async function getProducts() {
 		nameCell.innerHTML = docs[i].product_naam;
 		linkCell.innerHTML = "<a href='product-information.html'>Information</a>";
 		reviewCell.innerHTML = `${doc.positive_reviews} Yes // ${doc.negative_reviews} No`;
+		console.log("hello");
 	}
 }
