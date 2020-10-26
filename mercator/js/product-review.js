@@ -1,6 +1,6 @@
 async function getDocIDs() {
-	const snapshot = await firebase.firestore().collection("mercator-product_review").get()
-	return snapshot.docs.map(doc => doc.id);
+	const ids = await firebase.firestore().collection("mercator-product_review").get().then(snapshot => snapshot.docs.map(doc => doc.id));
+	return ids
 }
 
 function getProducts() {
