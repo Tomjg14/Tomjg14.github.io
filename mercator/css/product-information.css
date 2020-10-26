@@ -1,0 +1,11 @@
+#product_information {
+	margin: 0% 5%;
+	width:100%;
+	border-collapse: separate;
+	border-spacing: 0 75px;
+}
+
+th {
+	vertical-align: top;
+	align: left;
+}
