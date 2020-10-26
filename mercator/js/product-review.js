@@ -5,3 +5,27 @@ backBtn.addEventListener("click", e =>{
 	
 	window.location="product-menu.html";
 });
+
+
+function getProducts() {
+	const db = firebase.firestore();
+	let table = document.getElementById("product_table").getElementsByTagName('tbody')[0];
+	table.innerHTML = '';
+	
+	var header = table.insertRow(-1);
+	var eanCell = header.insertCell(0);
+	var nameCell = header.insertCell(1);
+	var linkCell = header.insertCell(2);
+	var reviewCell = header.insertCell(3);
+	
+	eanCell.innerHTML = "Product EAN";
+	nameCell.innerHTML = "Product Name";
+	linkCell.innerHTML = "Product Information";
+	reviewCell.innerHTML = "Reviews";
+	
+	db.collection("mercator-product_review").get().then(function(querySnapshot) {
+		querySnapshot.forEach(function(doc) {
+			console.log(doc.id, " => ", doc.data());
+		});
+	});
+}
