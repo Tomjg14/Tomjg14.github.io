@@ -19,7 +19,7 @@ form.addEventListener('submit', e => {
 	var bol_trends = document.querySelector("input[id='bol_trends']").files[0];
 	
 	const productCollectionRef = db.collection('mercator-product-review');
-	const trendsRef = storage.ref('trends/myPictureName.png');
+	const trendsRef = storage.ref(`trends/${ean}.png`);
 	
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
