@@ -1,12 +1,3 @@
-const backBtn = document.getElementById('back');
-
-backBtn.addEventListener("click", e =>{
-	e.preventDefault();
-	
-	window.location="product-menu.html";
-});
-
-
 function getProducts() {
 	const db = firebase.firestore();
 	let table = document.getElementById("product_table").getElementsByTagName('tbody')[0];
