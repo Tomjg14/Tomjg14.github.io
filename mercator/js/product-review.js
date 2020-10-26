@@ -19,5 +19,5 @@ function getProducts() {
 	linkCell.innerHTML = "Product Information";
 	reviewCell.innerHTML = "Reviews";
 
-	console.log(getDocIDs());
+	getDocIDs().then(ids => {console.log(ids)});
 }
