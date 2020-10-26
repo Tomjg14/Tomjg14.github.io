@@ -26,7 +26,7 @@ async function getProductInformation() {
 			title.innerHTML = doc.data().product_naam;
 			naamCell.innerHTML = doc.data().product_naam;
 			eanCell.innerHTML = doc.data().ean;
-			linkCell.innerHTML = doc.data().bol_link;
+			linkCell.innerHTML = `<a href="${doc.data().bol_link}">link</a>`;
 			verkoopprijsCell.innerHTML = doc.data().gem_verkoopprijs;
 			inkoopprijsCell.innerHTML = doc.data().gem_inkoopprijs;
 			zoekresultatenCell.innerHTML = doc.data().nr_zoekresultaten;
@@ -34,7 +34,7 @@ async function getProductInformation() {
 			toelichtingCell.innerHTML = doc.data().toelichting;
 			afmetingenCell.innerHTML = doc.data().afmetingen;
 			gewichtCell.innerHTML = doc.data().gewicht;
-			trendsImg.src = doc.data().bol_link;
+			trendsImg.src = doc.data().bol_trends;
 		} else {
 			console.log("No such document!");
 		}
