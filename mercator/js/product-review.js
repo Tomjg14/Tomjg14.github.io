@@ -21,4 +21,16 @@ async function getProducts() {
 
 	let ids = await getDocIDs();
 	console.log(ids);
+	
+	var docRef = db.collection("mercator-product_review").doc("1");
+	
+	docRef.get().then(function(doc) {
+		if (doc.exists) {
+			console.log(doc.data());
+		} else {
+			console.log("No such document!");
+		}
+	}).catch(function(error) {
+		console.log(error);
+	});
 }
