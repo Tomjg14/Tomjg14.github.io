@@ -1,6 +1,6 @@
 window.onload = getProductInformation();
 
-function getProductInformation() {
+async function getProductInformation() {
 	let ean = Object.values(getUrlVars())[0];
 	console.log(ean);
 	
@@ -8,7 +8,7 @@ function getProductInformation() {
 	
 	let title = document.getElementsByTagName('h1')[0];
 	
-	productRef.get().then(function(doc) {
+	await productRef.get().then(function(doc) {
 		if (doc.exists) {
 			console.log("Document data:", doc.data());
 			title.innerHTML = doc.product_naam;
