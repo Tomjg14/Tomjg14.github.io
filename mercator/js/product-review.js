@@ -14,10 +14,10 @@ async function getProducts() {
 	var linkCell = header.insertCell(2);
 	var reviewCell = header.insertCell(3);
 	
-	eanCell.innerHTML = "Product EAN";
-	nameCell.innerHTML = "Product Name";
-	linkCell.innerHTML = "Product Information";
-	reviewCell.innerHTML = "Reviews";
+	eanCell.innerHTML = "<strong>Product EAN</strong>";
+	nameCell.innerHTML = "<strong>Product Name</strong>";
+	linkCell.innerHTML = "<strong>Product Information</strong>";
+	reviewCell.innerHTML = "<strong>Reviews</strong>";
 
 	let docs = await getDocs();
 	

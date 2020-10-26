@@ -38,7 +38,9 @@ form.addEventListener('submit', e => {
 						toelichting: toelichting,
 						afmetingen: afmetingen,
 						gewicht: gewicht,
-						bol_trends: url
+						bol_trends: url,
+						positive_reviews: 0,
+						negative_reviews: 0
 					}).then(function() {
 						console.log("added info");
 					});
