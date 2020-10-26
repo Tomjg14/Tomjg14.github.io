@@ -35,6 +35,7 @@ async function getProductInformation() {
 			afmetingenCell.innerHTML = doc.data().afmetingen;
 			gewichtCell.innerHTML = doc.data().gewicht;
 			trendsImg.src = doc.data().bol_trends;
+			console.log("hello");
 		} else {
 			console.log("No such document!");
 		}
