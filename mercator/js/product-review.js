@@ -19,7 +19,7 @@ async function getProducts() {
 	linkCell.innerHTML = "Product Information";
 	reviewCell.innerHTML = "Reviews";
 
-	let docs = await getDocIDs();
+	let docs = await getDocs();
 	
 	for(var i = 0; i< docs.length; i++) {
 		var rij = table.insertRow(-1);
