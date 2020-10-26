@@ -27,13 +27,13 @@ async function getProductInformation() {
 			naamCell.innerHTML = doc.data().product_naam;
 			eanCell.innerHTML = doc.data().ean;
 			linkCell.innerHTML = `<a href="${doc.data().bol_link}">link</a>`;
-			verkoopprijsCell.innerHTML = doc.data().gem_verkoopprijs;
-			inkoopprijsCell.innerHTML = doc.data().gem_inkoopprijs;
+			verkoopprijsCell.innerHTML = `€${doc.data().gem_verkoopprijs}`;
+			inkoopprijsCell.innerHTML = `€${doc.data().gem_inkoopprijs}`;
 			zoekresultatenCell.innerHTML = doc.data().nr_zoekresultaten;
 			zoektermenCell.innerHTML = doc.data().zoek_termen;
 			toelichtingCell.innerHTML = doc.data().toelichting;
-			afmetingenCell.innerHTML = doc.data().afmetingen;
-			gewichtCell.innerHTML = doc.data().gewicht;
+			afmetingenCell.innerHTML = `${doc.data().afmetingen} cm`;
+			gewichtCell.innerHTML = `${doc.data().gewicht} gram`;
 			trendsImg.src = doc.data().bol_trends;
 			console.log("hello");
 		} else {
