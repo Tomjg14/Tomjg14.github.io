@@ -3,7 +3,7 @@ async function getDocIDs() {
 	return ids
 }
 
-function getProducts() {
+async function getProducts() {
 	const db = firebase.firestore();
 	let table = document.getElementById("product_table").getElementsByTagName('tbody')[0];
 	table.innerHTML = '';
