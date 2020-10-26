@@ -11,7 +11,8 @@ async function getProductInformation() {
 	await productRef.get().then(function(doc) {
 		if (doc.exists) {
 			console.log("Document data:", doc.data());
-			title.innerHTML = doc.product_naam;
+			console.log(doc.data().product_naam); 
+			title.innerHTML = doc.data().product_naam;
 		} else {
 			console.log("No such document!");
 		}
