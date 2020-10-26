@@ -11,7 +11,7 @@ function getProductInformation() {
 	productRef.get().then(function(doc) {
 		if (doc.exists) {
 			console.log("Document data:", doc.data());
-			title.innerHTML = doc.product_name;
+			title.innerHTML = doc.product_naam;
 		} else {
 			console.log("No such document!");
 		}
