@@ -31,6 +31,6 @@ async function getProducts() {
 		eanCell.innerHTML = docs[i].ean;
 		nameCell.innerHTML = docs[i].product_naam;
 		linkCell.innerHTML = "<a href='product-information.html'>Information</a>";
-		reviewCell.innerHTML = `${docs[i].positive_reviews} Yes // ${docs[i].negative_reviews} No`;
+		reviewCell.innerHTML = `${docs[i].positive_reviews} Yes / ${docs[i].negative_reviews} No`;
 	}
 }
