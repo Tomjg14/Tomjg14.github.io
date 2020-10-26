@@ -22,7 +22,7 @@ async function getProducts() {
 	let ids = await getDocIDs();
 	console.log(ids);
 	
-	var docRef = db.collection("mercator-product_review").doc(1);
+	var docRef = db.collection("mercator-product_review").doc("1");
 	
 	docRef.get().then(function(doc) {
 		if (doc.exists) {
