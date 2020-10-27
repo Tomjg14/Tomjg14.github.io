@@ -5,7 +5,7 @@ const noBtn = document.getElementById('no');
 yesBtn.addEventListener("click", e => {
 	e.preventDefault();
 	
-	firebase.auth().onAuthStateChanged(function(user) => {
+	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
 			console.log(user.id);
 		} else {
