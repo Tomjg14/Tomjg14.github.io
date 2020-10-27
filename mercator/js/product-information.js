@@ -5,12 +5,13 @@ const noBtn = document.getElementById('no');
 yesBtn.addEventListener("click", e => {
 	e.preventDefault();
 	
-	var user = firebase.auth.currentUser;
-	if (user) {
-		console.log(user.id);
-	} else {
-		console.log("no user");
-	}
+	firebase.auth().onAuthStateChanged(function(user) => {
+		if (user) {
+			console.log(user.id);
+		} else {
+			console.log("no user");
+		}
+	});
 });
 
 noBtn.addEventListener("click", e => {
