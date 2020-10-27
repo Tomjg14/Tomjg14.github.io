@@ -18,6 +18,7 @@ async function getProductInformation() {
 	let afmetingenCell = document.getElementById("afmetingen");
 	let gewichtCell = document.getElementById("gewicht");
 	let trendsImg = document.getElementById("bol_trends");
+	let fotoImg = document.getElementById("product_foto");
 	
 	await productRef.get().then(function(doc) {
 		if (doc.exists) {
@@ -35,7 +36,7 @@ async function getProductInformation() {
 			afmetingenCell.innerHTML = `${doc.data().afmetingen} cm`;
 			gewichtCell.innerHTML = `${doc.data().gewicht} gram`;
 			trendsImg.src = doc.data().bol_trends;
-			console.log("hello");
+			fotoImg.src = doc.data().product_foto;
 		} else {
 			console.log("No such document!");
 		}
