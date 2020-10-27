@@ -17,32 +17,40 @@ form.addEventListener('submit', e => {
 	var afmetingen = document.querySelector("input[id='afmetingen']").value;
 	var gewicht = document.querySelector("input[id='gewicht']").value;
 	var bol_trends = document.querySelector("input[id='bol_trends']").files[0];
+	var product_foto = document.querySelector("input=[id='product_foto']").files[0];
 	
 	const productCollectionRef = db.collection('mercator-product-review');
 	const trendsRef = storage.ref(`trends/${ean}.png`);
+	const fotoRef = storage.ref(`product_fotos/${ean}.png`);
 	
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
 			console.log("user logged in");
 			trendsRef.put(bol_trends).then(function() {
 				console.log("uploaded image");
-				trendsRef.getDownloadURL().then(function(url) {
-					productCollectionRef.doc(ean).set({
-						product_naam: product_name,
-						ean: ean,
-						bol_link: bol_link,
-						gem_verkoopprijs: gem_verkoopprijs,
-						gem_inkoopprijs: gem_inkoopprijs,
-						nr_zoekresultaten: nr_zoekresultaten,
-						zoek_termen: zoek_termen,
-						toelichting: toelichting,
-						afmetingen: afmetingen,
-						gewicht: gewicht,
-						bol_trends: url,
-						positive_reviews: 0,
-						negative_reviews: 0
-					}).then(function() {
-						console.log("added info");
+				trendsRef.getDownloadURL().then(function(url_trends) {
+					fotoRef.put(product_foto).then(function() {
+						console.log("uploaded image");
+						fotoRef.getDownloadURL().then(function(url_foto) {
+							productCollectionRef.doc(ean).set({
+								product_naam: product_name,
+								ean: ean,
+								bol_link: bol_link,
+								gem_verkoopprijs: gem_verkoopprijs,
+								gem_inkoopprijs: gem_inkoopprijs,
+								nr_zoekresultaten: nr_zoekresultaten,
+								zoek_termen: zoek_termen,
+								toelichting: toelichting,
+								afmetingen: afmetingen,
+								gewicht: gewicht,
+								bol_trends: url_trends,
+								product_foto: url_foto,
+								positive_reviews: 0,
+								negative_reviews: 0
+							}).then(function() {
+							console.log("added info");
+							});
+						});
 					});
 				});
 			});
