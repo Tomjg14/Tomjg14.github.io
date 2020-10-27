@@ -9,3 +9,12 @@ th {
 	vertical-align: top;
 	align: left;
 }
+
+table {
+	table-layout: fixed;
+	width: 100%;
+}
+
+td {
+	width: 50%;
+}
