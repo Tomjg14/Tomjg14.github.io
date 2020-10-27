@@ -17,7 +17,7 @@ form.addEventListener('submit', e => {
 	var afmetingen = document.querySelector("input[id='afmetingen']").value;
 	var gewicht = document.querySelector("input[id='gewicht']").value;
 	var bol_trends = document.querySelector("input[id='bol_trends']").files[0];
-	var product_foto = document.querySelector("input=[id='product_foto']").files[0];
+	var product_foto = document.querySelector("input[id='product_foto']").files[0];
 	
 	const productCollectionRef = db.collection('mercator-product-review');
 	const trendsRef = storage.ref(`trends/${ean}.png`);
