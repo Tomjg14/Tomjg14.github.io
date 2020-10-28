@@ -46,7 +46,8 @@ form.addEventListener('submit', e => {
 								bol_trends: url_trends,
 								product_foto: url_foto,
 								positive_reviews: 0,
-								negative_reviews: 0
+								negative_reviews: 0,
+								votes: []
 							}).then(function() {
 							console.log("added info");
 							});
