@@ -19,6 +19,17 @@ async function getVotes(ean,sign) {
 	return votes
 }
 
+async function getVoted(ean) {
+	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean);
+	await productRef.get().then(function(doc) {
+		if (doc.exists) {
+			return doc.voted;
+		} else {
+			console.log("No such document!");
+		}
+	});
+}
+
 yesBtn.addEventListener("click", e => {
 	e.preventDefault();
 	let ean = Object.values(getUrlVars())[0];
@@ -30,7 +41,8 @@ yesBtn.addEventListener("click", e => {
 			votes = getVotes(ean,"+");
 			votes.then(function(x) {
 				productRef.update({
-					positive_reviews: x+1
+					positive_reviews: x+1,
+					voted: firebase.firestore.FieldValue.arrayUnion(user.uid)
 				});
 			});
 		} else {
@@ -50,7 +62,8 @@ noBtn.addEventListener("click", e => {
 			votes = getVotes(ean,"-");
 			votes.then(function(x) {
 				productRef.update({
-					negative_reviews: x+1
+					negative_reviews: x+1,
+					voted: firebase.firestore.FieldValue.arrayUnion(user.uid)
 				});
 			});
 		} else {
