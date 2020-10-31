@@ -28,9 +28,10 @@ yesBtn.addEventListener("click", e => {
 		if (user) {
 			console.log(user.uid);
 			votes = getVotes(ean,"+");
-			votes.then(function(x) {console.log(x);})
-			productRef.update({
-				positive_reviews: votes+1
+			votes.then(function(x) {
+				productRef.update({
+					positive_reviews: x+1
+				});
 			});
 		} else {
 			console.log("no user");
