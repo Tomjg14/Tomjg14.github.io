@@ -1,6 +1,38 @@
+window.onload = userVoted()
+
 const backBtn = document.getElementById('back');
 const yesBtn = document.getElementById('yes');
 const noBtn = document.getElementById('no');
+
+async function getVoted(ean) {
+	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean);
+	await productRef.get().then(function(doc) {
+		if (doc.exists) {
+			return doc.voted;
+		} else {
+			console.log("No such document!");
+		}
+	});
+}
+
+function userVoted() {
+	let ean = Object.values(getUrlVars())[0];
+	firebase.auth().onAuthStateChanged(function(user) {
+		if (user) {
+			console.log(user.uid);
+			voted = getVoted(ean);
+			voted.then(function(x) {
+				if x.includes(user.uid) {
+					console.log("user already voted");
+				} else {
+					console.log("user did not yet vote");
+				}
+			});
+		} else {
+			console.log("no user");
+		}
+	});
+}
 
 async function getVotes(ean,sign) {
 	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean);
