@@ -27,7 +27,7 @@ yesBtn.addEventListener("click", e => {
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
 			console.log(user.uid);
-			votes = await getVotes(ean,"+");
+			votes = getVotes(ean,"+");
 			productRef.update({
 				positive_reviews: votes+1;
 		} else {
@@ -44,7 +44,7 @@ noBtn.addEventListener("click", e => {
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
 			console.log(user.uid);
-			votes = await getVotes(ean,"-");
+			votes = getVotes(ean,"-");
 			productRef.update({
 				negative_reviews: votes+1;
 		} else {
