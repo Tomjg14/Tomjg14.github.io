@@ -2,6 +2,23 @@ const backBtn = document.getElementById('back');
 const yesBtn = document.getElementById('yes');
 const noBtn = document.getElementById('no');
 
+async function getVotes(ean,sign) {
+	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean);
+	var votes = 0;
+	await productRef.get().then(function(doc) {
+		if (doc.exists) {
+			if (sign == "+") {
+				votes = doc.positive_reviews;
+			} else {
+				votes = doc.negative_reviews;
+			}
+		} else {
+			console.log("No such document!");
+		}
+	});
+	return votes
+}
+
 yesBtn.addEventListener("click", e => {
 	e.preventDefault();
 	let ean = Object.values(getUrlVars())[0];
@@ -10,8 +27,9 @@ yesBtn.addEventListener("click", e => {
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
 			console.log(user.uid);
+			votes = await getVotes(ean,"+");
 			productRef.update({
-				positive_reviews:
+				positive_reviews: votes+1;
 		} else {
 			console.log("no user");
 		}
@@ -20,7 +38,19 @@ yesBtn.addEventListener("click", e => {
 
 noBtn.addEventListener("click", e => {
 	e.preventDefault();
+	let ean = Object.values(getUrlVars())[0];
+	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean);
 	
+	firebase.auth().onAuthStateChanged(function(user) {
+		if (user) {
+			console.log(user.uid);
+			votes = await getVotes(ean,"-");
+			productRef.update({
+				negative_reviews: votes+1;
+		} else {
+			console.log("no user");
+		}
+	});
 });
 
 backBtn.addEventListener("click", e =>{
