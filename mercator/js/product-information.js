@@ -28,6 +28,7 @@ yesBtn.addEventListener("click", e => {
 		if (user) {
 			console.log(user.uid);
 			votes = getVotes(ean,"+");
+			console.log(votes);
 			productRef.update({
 				positive_reviews: votes+1
 			});
