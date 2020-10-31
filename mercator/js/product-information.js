@@ -48,8 +48,10 @@ noBtn.addEventListener("click", e => {
 		if (user) {
 			console.log(user.uid);
 			votes = getVotes(ean,"-");
-			productRef.update({
-				negative_reviews: votes+1
+			votes.then(function(x) {
+				productRef.update({
+					negative_reviews: x+1
+				});
 			});
 		} else {
 			console.log("no user");
