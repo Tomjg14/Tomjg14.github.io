@@ -22,7 +22,7 @@ function userVoted() {
 			console.log(user.uid);
 			voted = getVoted(ean);
 			voted.then(function(x) {
-				if x.includes(user.uid) {
+				if (x.includes(user.uid)) {
 					console.log("user already voted");
 				} else {
 					console.log("user did not yet vote");
