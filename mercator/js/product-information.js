@@ -8,9 +8,9 @@ async function getVotes(ean,sign) {
 	await productRef.get().then(function(doc) {
 		if (doc.exists) {
 			if (sign == "+") {
-				votes = doc.positive_reviews;
+				return doc.positive_reviews;
 			} else {
-				votes = doc.negative_reviews;
+				return doc.negative_reviews;
 			}
 		} else {
 			console.log("No such document!");
