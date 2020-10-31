@@ -30,6 +30,7 @@ yesBtn.addEventListener("click", e => {
 			votes = getVotes(ean,"+");
 			productRef.update({
 				positive_reviews: votes+1
+			});
 		} else {
 			console.log("no user");
 		}
@@ -47,6 +48,7 @@ noBtn.addEventListener("click", e => {
 			votes = getVotes(ean,"-");
 			productRef.update({
 				negative_reviews: votes+1
+			});
 		} else {
 			console.log("no user");
 		}
