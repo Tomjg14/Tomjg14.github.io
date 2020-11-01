@@ -5,6 +5,7 @@ const yesBtn = document.getElementById('yes');
 const noBtn = document.getElementById('no');
 
 async function getVoted(ean) {
+	console.log(ean);
 	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean);
 	await productRef.get().then(function(doc) {
 		if (doc.exists) {
@@ -16,7 +17,7 @@ async function getVoted(ean) {
 	});
 }
 
-function userVoted() {
+async function userVoted() {
 	let ean = Object.values(getUrlVars())[0];
 	firebase.auth().onAuthStateChanged(async function(user) {
 		if (user) {
