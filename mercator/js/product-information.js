@@ -10,7 +10,7 @@ async function getVoted(ean) {
 	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean);
 	await productRef.get().then(function(doc) {
 		if (doc.exists) {
-			return doc.data().voted;
+			voted = doc.data().voted;
 		} else {
 			console.log("No such document!");
 		}
@@ -55,25 +55,38 @@ async function getVotes(ean,sign) {
 	return votes
 }
 
-yesBtn.addEventListener("click", e => {
-	e.preventDefault();
-	let ean = Object.values(getUrlVars())[0];
+async function updateVotes(ean,sign) {
 	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean);
 	
 	firebase.auth().onAuthStateChanged(function(user) {
 		if (user) {
-			console.log(user.uid);
-			votes = getVotes(ean,"+");
-			votes.then(function(x) {
-				productRef.update({
-					positive_reviews: x+1,
-					voted: firebase.firestore.FieldValue.arrayUnion(user.uid)
-				});
+			await productRef.get().then(function(doc) {
+				if (doc.exists) {
+					if (sign == "+") {
+						productRef.update({
+							positive_reviews: doc.data().positive_reviews + 1,
+							voted: firebase.firestore.FieldValue.arrayUnion(user.uid)
+						});
+					} else {
+						productRef.update({
+							negative_reviews: doc.data().negative_reviews + 1,
+							voted: firebase.firestore.FieldValue.arrayUnion(user.uid)
+						});
+					}
+				} else {
+					console.log("No such document!");
+				}
 			});
 		} else {
 			console.log("no user");
 		}
 	});
+}
+
+yesBtn.addEventListener("click", e => {
+	e.preventDefault();
+	let ean = Object.values(getUrlVars())[0];
+	updateVotes(ean,"+");
 });
 
 noBtn.addEventListener("click", e => {
