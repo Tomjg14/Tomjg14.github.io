@@ -58,7 +58,7 @@ async function getVotes(ean,sign) {
 async function updateVotes(ean,sign) {
 	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean);
 	
-	firebase.auth().onAuthStateChanged(function(user) {
+	firebase.auth().onAuthStateChanged(async function(user) {
 		if (user) {
 			await productRef.get().then(function(doc) {
 				if (doc.exists) {
