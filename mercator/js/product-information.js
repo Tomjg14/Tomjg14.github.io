@@ -9,9 +9,7 @@ async function getVoted(ean) {
 	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean);
 	await productRef.get().then(function(doc) {
 		if (doc.exists) {
-			console.log(doc.data());
-			console.log(doc.data().voted);
-			return doc.voted;
+			return doc.data().voted;
 		} else {
 			console.log("No such document!");
 		}
