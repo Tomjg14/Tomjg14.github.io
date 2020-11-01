@@ -6,6 +6,7 @@ const noBtn = document.getElementById('no');
 
 async function getVoted(ean) {
 	console.log(ean);
+	var voted = [];
 	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean);
 	await productRef.get().then(function(doc) {
 		if (doc.exists) {
@@ -14,6 +15,7 @@ async function getVoted(ean) {
 			console.log("No such document!");
 		}
 	});
+	return voted;
 }
 
 function userVoted() {
