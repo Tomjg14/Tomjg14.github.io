@@ -54,17 +54,6 @@ async function getVotes(ean,sign) {
 	return votes
 }
 
-async function getVoted(ean) {
-	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean);
-	await productRef.get().then(function(doc) {
-		if (doc.exists) {
-			return doc.voted;
-		} else {
-			console.log("No such document!");
-		}
-	});
-}
-
 yesBtn.addEventListener("click", e => {
 	e.preventDefault();
 	let ean = Object.values(getUrlVars())[0];
