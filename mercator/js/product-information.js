@@ -16,9 +16,9 @@ async function getVoted(ean) {
 	});
 }
 
-async function userVoted() {
+function userVoted() {
 	let ean = Object.values(getUrlVars())[0];
-	firebase.auth().onAuthStateChanged(function(user) {
+	firebase.auth().onAuthStateChanged(async function(user) {
 		if (user) {
 			console.log(user.uid);
 			voted = await getVoted(ean);
