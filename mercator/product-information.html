@@ -74,8 +74,15 @@
 					</table>
 					</div>
 					<img src='' alt='bol trends' id="bol_trends" width="708" height="235">
+					<div class="col-md-12 text-center" id='message-block'>
+						<h2>Your Review</h2>
+						<br>
+						You have already voted.
+						<br>
+					</div>
 					<div class='text-center' id="review">
 						<h2>Your Review</h2>
+
 						<button class="btn btn-lg btn-success fp-buttons custom-button" id="yes">Yes</button>
 						<button class="btn btn-lg btn-danger fp-buttons custom-button" id="no">No</button>
 					</div>
@@ -88,6 +95,11 @@
 			</div>
 		</div>
 		<!-- /#page-content-wrapper -->
+		
+		<script>
+			const messageDiv = document.getElementById('message-block');
+			messageDiv.style.display = "none";
+		</script>
 
 		<script src='js/firebase_config.js'></script>
 		<script src='js/firebase_check_login.js'></script>
