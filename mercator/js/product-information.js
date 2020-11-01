@@ -4,6 +4,10 @@ const backBtn = document.getElementById('back');
 const yesBtn = document.getElementById('yes');
 const noBtn = document.getElementById('no');
 
+const reviewDiv = document.getElementById('review');
+const messageDiv = document.getElementById('message-block');
+messageDiv.style.display = "none";
+
 async function getVoted(ean) {
 	console.log(ean);
 	var voted = [];
@@ -29,7 +33,6 @@ function userVoted() {
 				if (x.includes(user.uid)) {
 					console.log("user already voted");
 					messageDiv.style.display = "block";
-					const reviewDiv = document.getElementById('review');
 					reviewDiv.style.display = "none";
 				} else {
 					console.log("user did not yet vote");
@@ -73,12 +76,16 @@ yesBtn.addEventListener("click", e => {
 	e.preventDefault();
 	let ean = Object.values(getUrlVars())[0];
 	updateVotes(ean,"+");
+	messageDiv.style.display = "block";
+	reviewDiv.style.display = "none";
 });
 
 noBtn.addEventListener("click", e => {
 	e.preventDefault();
 	let ean = Object.values(getUrlVars())[0];
 	updateVotes(ean,"-");
+	messageDiv.style.display = "block";
+	reviewDiv.style.display = "none";
 });
 
 backBtn.addEventListener("click", e =>{
