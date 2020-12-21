@@ -1,13 +1,13 @@
 // Your web app's Firebase configuration
 var firebaseConfig = {
-    apiKey: "AIzaSyD8S49XZVws_hhOXmd8qZckQ8gk2fFIcsU",
-    authDomain: "mercator-product-review.firebaseapp.com",
-    databaseURL: "https://mercator-product-review.firebaseio.com",
-    projectId: "mercator-product-review",
-    storageBucket: "mercator-product-review.appspot.com",
-    messagingSenderId: "309746193200",
-    appId: "1:309746193200:web:7497b12916fa353712eef5",
-    measurementId: "G-SPHLV3BVVE"
+    apiKey: "AIzaSyBB_9eSej7JKUfgvTVIOmukh27pBst55xI",
+    authDomain: "mercator-tracking.firebaseapp.com",
+    databaseURL: "https://mercator-tracking.firebaseio.com",
+    projectId: "mercator-tracking",
+    storageBucket: "mercator-tracking.appspot.com",
+    messagingSenderId: "941726195687",
+    appId: "1:941726195687:web:6e4aeb3e57e734c41c2742",
+    measurementId: "G-NT0WD454TZ"
  };
 
 // Initialize Firebase
