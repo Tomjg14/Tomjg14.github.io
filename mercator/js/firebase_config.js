@@ -2,7 +2,6 @@
 var firebaseConfig = {
     apiKey: "AIzaSyBB_9eSej7JKUfgvTVIOmukh27pBst55xI",
     authDomain: "mercator-tracking.firebaseapp.com",
-    databaseURL: "https://mercator-tracking.firebaseio.com",
     projectId: "mercator-tracking",
     storageBucket: "mercator-tracking.appspot.com",
     messagingSenderId: "941726195687",
