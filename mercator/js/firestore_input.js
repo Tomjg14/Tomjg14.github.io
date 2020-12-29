@@ -32,6 +32,7 @@ form.addEventListener('submit', e => {
 					fotoRef.put(product_foto).then(function() {
 						console.log("uploaded image");
 						fotoRef.getDownloadURL().then(function(url_foto) {
+							console.log("add item to firestore");
 							productCollectionRef.doc(ean).set({
 								product_naam: product_name,
 								ean: ean,
@@ -48,6 +49,8 @@ form.addEventListener('submit', e => {
 								positive_reviews: 0,
 								negative_reviews: 0,
 								votes: []
+							}).catch(function(error) {
+								console.error("Error adding item: ", error);
 							}).then(function() {
 							console.log("added info");
 							});
