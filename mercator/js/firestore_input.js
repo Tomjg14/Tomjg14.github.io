@@ -31,10 +31,10 @@ form.addEventListener('submit', e => {
 						votes: []
 					}).catch(function(error) {
 						console.error("Error adding item: ", error);
-						response_message.innerText("Error adding product");
+						response_message.innerHTML("Error adding product");
 					}).then(function() {
 						console.log("added info");
-						response_message.innerText(`Product {ean} has been added`);
+						response_message.innerHTML(`Product {ean} has been added`);
 					});
 				});
 			});
