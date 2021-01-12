@@ -34,7 +34,7 @@ form.addEventListener('submit', e => {
 						response_message.innerHTML = "Error adding product";
 					}).then(function() {
 						console.log("added info");
-						response_message.innerHTML = `Product {ean} has been added`;
+						response_message.innerHTML = `Product ${ean} has been added`;
 					});
 				});
 			});
