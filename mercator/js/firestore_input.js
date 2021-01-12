@@ -13,7 +13,7 @@ form.addEventListener('submit', e => {
 	const productCollectionRef = db.collection('mercator-product-review');
 	const fotoRef = storage.ref(`product_fotos/${ean}.png`);
 	
-	var response_message = document.GetElementById('response_message')
+	var response_message = document.getElementById('response_message')
 	
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
