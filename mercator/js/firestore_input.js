@@ -13,6 +13,8 @@ form.addEventListener('submit', e => {
 	const productCollectionRef = db.collection('mercator-product-review');
 	const fotoRef = storage.ref(`product_fotos/${ean}.png`);
 	
+	var response_message = document.GetElementById('response_message')
+	
 	firebase.auth().onAuthStateChanged(function(user) {
 		if(user) {
 			console.log("user logged in");
@@ -29,8 +31,10 @@ form.addEventListener('submit', e => {
 						votes: []
 					}).catch(function(error) {
 						console.error("Error adding item: ", error);
+						response_message.innerText("Error adding product");
 					}).then(function() {
 						console.log("added info");
+						response_message.innerText(`Product {ean} has been added`);
 					});
 				});
 			});
