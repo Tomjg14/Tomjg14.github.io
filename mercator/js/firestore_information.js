@@ -4,12 +4,16 @@ async function getProductInformation() {
 	let ean = Object.values(getUrlVars())[0];
 	console.log(ean);
 	
-	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean);
+	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean).collection("stock");
+	let trackRef = firebase.firestore().collection("mercator-product-tracking").doc(ean);
+	
 	
 	let title = document.getElementsByTagName('h1')[0];
 	let naamCell = document.getElementById("product_naam");
 	let eanCell = document.getElementById("ean");
 	let fotoImg = document.getElementById("product_foto");
+	
+	var ctx = document.getElementById('product-track-chart').getContext('2d');
 	
 	await productRef.get().then(function(doc) {
 		if (doc.exists) {
@@ -22,5 +26,11 @@ async function getProductInformation() {
 		}
 	}).catch(function(error) {
 		console.log("Error getting document:", error);
+	});
+	
+	await trackRef.get().then(function(querySnapshot) {
+		querySnapshot.forEach(function(doc) {
+			console.log(doc.id, " => ", doc.data());
+		});
 	});
 }
