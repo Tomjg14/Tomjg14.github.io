@@ -29,8 +29,54 @@ async function getProductInformation() {
 	});
 	
 	await trackRef.get().then(function(querySnapshot) {
+		var stock_data = [];
+		var dates = [];
 		querySnapshot.forEach(function(doc) {
-			console.log(doc.id, " => ", doc.data());
+			var entry = doc.data();
+			
+			var stock = entry.stock;
+			stock_data.push(stock);
+			
+			var date = doc.id;
+			dates.push(date);
 		});
+	});
+	
+	var myChart = Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: dates,
+			datasets: [{
+				label: 'Items',
+				data: stock_data,
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero: true
+					}
+				}]
+			},
+			// Container for pan options
+			pan: {
+				// Boolean to enable panning
+				enabled: true,
+				
+				// Panning directions.
+				mode: 'x',
+				
+				speed: 1
+			},
+			
+			// Container for zoom options
+			zoom: {
+				// enable zooming
+				enabled: true,
+				// Zooming directions,
+				mode: 'x',
+			}
+		}
 	});
 }
