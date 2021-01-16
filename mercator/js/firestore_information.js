@@ -4,8 +4,8 @@ async function getProductInformation() {
 	let ean = Object.values(getUrlVars())[0];
 	console.log(ean);
 	
-	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean).collection("stock");
-	let trackRef = firebase.firestore().collection("mercator-product-tracking").doc(ean);
+	let productRef = firebase.firestore().collection("mercator-product-review").doc(ean);
+	let trackRef = firebase.firestore().collection("mercator-product-tracking").doc(ean).collection("stock");
 	
 	
 	let title = document.getElementsByTagName('h1')[0];
