@@ -53,6 +53,8 @@ async function getProductInformation() {
 			}]
 		},
 		options: {
+			maintainAspectRatio: false,
+			responsive: true,
 			scales: {
 				yAxes: [{
 					ticks: {
