@@ -28,9 +28,10 @@ async function getProductInformation() {
 		console.log("Error getting document:", error);
 	});
 	
+	var stock_data = [];
+	var dates = [];
+	
 	await trackRef.get().then(function(querySnapshot) {
-		var stock_data = [];
-		var dates = [];
 		querySnapshot.forEach(function(doc) {
 			var entry = doc.data();
 			
