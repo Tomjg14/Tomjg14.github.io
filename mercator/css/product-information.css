@@ -18,3 +18,8 @@ table {
 td {
 	width: 50%;
 }
+
+#track-chart {
+	width: 1000px;
+    height:600px
+}
