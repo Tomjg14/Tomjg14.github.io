@@ -45,7 +45,11 @@ async function getProductInformation() {
 	
 	var sales = [0];
     for (var i = 1; i < stock_data.length; i++)  sales.push((stock_data[i] - stock_data[i - 1])*-1);
-	sales[sales < 0] = 0;
+	for (var i = 0; i < sales.length; i++) {
+		if (sales[i] < 0) {
+			sales[i] = 0;
+		}
+	};
 	
 	var myChart = new Chart(ctx, {
 		type: 'line',
