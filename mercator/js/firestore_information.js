@@ -43,7 +43,7 @@ async function getProductInformation() {
 		});
 	});
 	
-	var myChart = Chart(ctx, {
+	var myChart = new Chart(ctx, {
 		type: 'line',
 		data: {
 			labels: dates,
