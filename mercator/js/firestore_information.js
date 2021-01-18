@@ -43,13 +43,16 @@ async function getProductInformation() {
 		});
 	});
 	
+	var sales = [0];
+    for (var i = 1; i < stock_data.length; i++)  sales.push(stock_data[i] - stock_data[i - 1]);
+	
 	var myChart = new Chart(ctx, {
 		type: 'line',
 		data: {
 			labels: dates,
 			datasets: [{
 				label: 'Items',
-				data: stock_data,
+				data: sales,
 			}]
 		},
 		options: {
