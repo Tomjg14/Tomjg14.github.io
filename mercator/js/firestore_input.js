@@ -1,5 +1,9 @@
 const form = document.querySelector('form')
 let fileUpload = document.getElementById('bol_trends')
+
+function reqListener() {
+	console.log(this.responseText);
+}
  
 form.addEventListener('submit', e => {
 	e.preventDefault();
@@ -9,6 +13,11 @@ form.addEventListener('submit', e => {
 	var product_name = document.querySelector("input[id='product_name']").value;
 	var ean = document.querySelector("input[id='EAN']").value;
 	var product_foto = document.querySelector("input[id='product_foto']").files[0];
+	
+	var oReq = new XMLHttpRequest();
+	oReq.addEventListener("load", reqListener);
+	oReq.open("GET", `https://api.bol.com/catalog/v4/search/?q=${ean}&offset=0&limit=2&dataoutput=products,categories&apikey=734FF9976B7244708A2AF6293BA47D52&format=json`
+	oReg.send();
 	
 	const productCollectionRef = db.collection('mercator-product-review');
 	const fotoRef = storage.ref(`product_fotos/${ean}.png`);
