@@ -14,10 +14,21 @@ form.addEventListener('submit', e => {
 	var ean = document.querySelector("input[id='EAN']").value;
 	var product_foto = document.querySelector("input[id='product_foto']").files[0];
 	
-	var oReq = new XMLHttpRequest();
-	oReq.addEventListener("load", reqListener);
-	oReq.open("GET", `https://api.bol.com/catalog/v4/search/?q=${ean}&offset=0&limit=2&dataoutput=products,categories&apikey=734FF9976B7244708A2AF6293BA47D52&format=json`)
-	oReq.send();
+	const invocation = new XMLHttpRequest();
+	const url = `https://api.bol.com/catalog/v4/search/?q=${ean}&offset=0&limit=2&dataoutput=products,categories&apikey=734FF9976B7244708A2AF6293BA47D52&format=json`;
+	
+	function callOtherDomain() {
+		if (invocation) {
+			invocation.open('GET', url, true);
+			invocation.withCredentials = true;
+			invocation.onreadystatechange =  function() {
+				if(invocation.readyState === XMLHttpRequest.DONE && invocation.status === 200) console.log(invocation.responseText);
+			};
+			invocation.send();
+		}
+	}
+	
+	callOtherDomain();
 
 	const productCollectionRef = db.collection('mercator-product-review');
 	const fotoRef = storage.ref(`product_fotos/${ean}.png`);
