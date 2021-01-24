@@ -1,4 +1,4 @@
 #input-table tr, th {
-	display: inline;
+	display: inline-block;
 	float: none;
 }
