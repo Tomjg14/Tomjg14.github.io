@@ -1,0 +1,4 @@
+#input-table tr, th {
+	display: inline;
+	float: none;
+}
