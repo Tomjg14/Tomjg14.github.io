@@ -53,7 +53,7 @@ async function getProductInformation() {
 	
 	var max_sales_value = Math.max.apply(Math, sales);
 	var y_axis_max = max_sales_value+(Math.ceil(max_sales_value/2));
-	var y_axis_steps = Math.ceil(y_axis_max/2);
+	var y_axis_steps = Math.ceil(y_axis_max/5);
 	
 	var myChart = new Chart(ctx, {
 		type: 'line',
