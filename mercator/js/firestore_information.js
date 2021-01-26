@@ -56,7 +56,7 @@ async function getProductInformation() {
 	var y_axis_steps = Math.ceil(y_axis_max/5);
 	var label_steps = 2;
 	
-	if sales.length > 14 {
+	if (sales.length > 14) {
 		label_steps = Math.ceil(sales.length/7);
 	};
 	
