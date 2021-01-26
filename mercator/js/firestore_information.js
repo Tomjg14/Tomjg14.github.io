@@ -74,6 +74,12 @@ async function getProductInformation() {
 						stepSize: y_axis_steps,
 						max: y_axis_max
 					}
+				}],
+				xAxes: [{
+					ticks: {
+						beginAtZero: true,
+						stepSize: 7
+					}
 				}]
 			},
 			// Container for pan options
