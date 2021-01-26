@@ -90,7 +90,8 @@ async function getProductInformation() {
 						unitStepSize: 7,
 						displayFormats: {
 							'day': 'MMM DD'
-						},
+						}
+					},
 					ticks: {
 						beginAtZero: true,
 					}
