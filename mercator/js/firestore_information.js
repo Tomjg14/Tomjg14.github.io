@@ -86,8 +86,7 @@ async function getProductInformation() {
 				xAxes: [{
 					ticks: {
 						beginAtZero: true,
-						autoSkip: true,
-						maxTicksLimit: label_steps
+						stepSize: 7
 					}
 				}]
 			},
