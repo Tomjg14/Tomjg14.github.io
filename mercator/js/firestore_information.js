@@ -65,6 +65,9 @@ async function getProductInformation() {
 			}]
 		},
 		options: {
+			legend: {
+				display: false
+			},
 			maintainAspectRatio: false,
 			responsive: true,
 			scales: {
