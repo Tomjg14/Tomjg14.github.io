@@ -84,9 +84,15 @@ async function getProductInformation() {
 					}
 				}],
 				xAxes: [{
+					type: 'time',
+					time: {
+						unit: 'day',
+						unitStepSize: 7,
+						displayFormats: {
+							'day': 'MMM DD'
+						},
 					ticks: {
 						beginAtZero: true,
-						stepSize: 7
 					}
 				}]
 			},
