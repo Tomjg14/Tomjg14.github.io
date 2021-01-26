@@ -54,6 +54,11 @@ async function getProductInformation() {
 	var max_sales_value = Math.max.apply(Math, sales);
 	var y_axis_max = max_sales_value+(Math.ceil(max_sales_value/2));
 	var y_axis_steps = Math.ceil(y_axis_max/5);
+	var label_steps = 2;
+	
+	if sales.length > 14 {
+		label_steps = Math.ceil(sales.length/7);
+	};
 	
 	var myChart = new Chart(ctx, {
 		type: 'line',
@@ -82,7 +87,7 @@ async function getProductInformation() {
 					ticks: {
 						beginAtZero: true,
 						autoSkip: true,
-						maxTicksLimit: 5
+						maxTicksLimit: label_steps
 					}
 				}]
 			},
