@@ -60,8 +60,8 @@ async function getProductInformation() {
 		data: {
 			labels: dates,
 			datasets: [{
-				label: 'Items',
 				data: sales,
+				fill: false
 			}]
 		},
 		options: {
@@ -78,7 +78,8 @@ async function getProductInformation() {
 				xAxes: [{
 					ticks: {
 						beginAtZero: true,
-						stepSize: 7
+						autoSkip: true,
+						maxTicksLimit: 5
 					}
 				}]
 			},
